@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div className="min-h-screen bg-dark-layer-bg">
+    <div className="min-h-screen bg-dark-layer-bg overflow-y-scroll">
       <div className="h-[50px] border-b-1 border-border-tertiary flex items-center justify-between px-6 bg-dark-layer-1">
         <div className="flex items-center">
           <a className="h-[22px] mb-0.5 mr-8" href="#">
@@ -12,7 +12,7 @@ function App() {
             <div className="hover:text-text-primary cursor-pointer py-3 transition-colors duration-200">Contest</div>
             <div className="hover:text-text-primary cursor-pointer py-3 transition-colors duration-200">Discuss</div>
             <div className="hover:text-text-primary cursor-pointer py-3 transition-colors duration-200 flex items-center"><span>Interview</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="ml-1 h-[14px] w-[14px]" aria-hidden="true"><path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg></div>
-            <div className="hover:text-text-primary cursor-pointer py-3 transition-colors duration-200 flex items-center text-brand-orange"><span>Store</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="ml-1 h-[14px] w-[14px]" aria-hidden="true"><path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg></div>
+            <div className="cursor-pointer py-3 transition-colors duration-200 flex items-center text-brand-orange"><span>Store</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="ml-1 h-[14px] w-[14px]" aria-hidden="true"><path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg></div>
           </div>
         </div>
         <div className="flex text-text-secondary gap-3 items-center">
@@ -25,7 +25,7 @@ function App() {
           </div>
           <div className="flex items-center gap-2">
             <img className="cursor-pointer rounded-full w-6 h-6" src="https://assets.leetcode.com/users/sahilrochlani8887/avatar_1612952604.png" />
-            <span className="cursor-pointer transition-colors duration-200 font-typo hover:text-brand-orange text-brand-orange px-3 py-1.5 text-sm rounded-lg bg-[#ffa1161f]  hover:bg-[#ffa11633]">Premium</span>
+            <span className="cursor-pointer transition-colors duration-200 font-typo hover:text-brand-orange text-brand-orange px-3.5 py-1.5 text-sm rounded-lg bg-[#ffa1161f]  hover:bg-[#ffa11633]">Premium</span>
           </div>
         </div>
       </div>
