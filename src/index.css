@@ -10,4 +10,7 @@
     --color-border-tertiary:#ffffff24;
     --font-typo:'Typo Round Regular Demo', sans-serif;
     --color-fill-3:#ffffff1a;
+    --color-sd-accent:hsl(0,0%,100%,0.08);
+    --color-sd-border:hsl(0,0%,100%,0.1);
+    --color-sd-muted-background:hsl(0 0% 66%);
 }
