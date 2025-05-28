@@ -13,4 +13,5 @@
     --color-sd-accent:hsl(0,0%,100%,0.08);
     --color-sd-border:hsl(0,0%,100%,0.1);
     --color-sd-muted-background:hsl(0 0% 66%);
+    --color-dark-lc-support-info:rgb(38 150 255);
 }
