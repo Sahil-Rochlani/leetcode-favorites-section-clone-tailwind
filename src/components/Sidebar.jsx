@@ -1,9 +1,32 @@
+import { useRef } from "react"
 import { useState } from "react"
 
 const Sidebar = () => {
+    const SidebarRef = useRef(null)
     const [SidebarOpen, setSidebarOpen] = useState(true)
-    return <div className="flex relative">
-        <div className={`overflow-y-scroll overflow-x-hidden shirnk-0 flex flex-col ${SidebarOpen ? 'w-[260px]' : 'w-[0px]'} transition-all duration-500 ease-in-out bg-dark-layer-bg sticky top-0 left-0`}>
+    const [isResizing, setIsResizing] = useState(false)
+    console.log(isResizing)
+    const handleOnMouseDown = (e) => {
+        e.preventDefault()
+        setIsResizing(true)
+    }
+
+    const handleOnMouseUp = (e) => {
+        e.preventDefault()
+        setIsResizing(false)
+    }
+
+    const handleOnMouseMove = (e) => {
+        if(!isResizing)return
+
+        const newWidth = e.clientX - SidebarRef.current.getBoundingClientRect().left
+        if(newWidth >= 180 && newWidth <= 260){
+            SidebarRef.current.style.width = `${newWidth}px`
+        }
+    }
+
+    return <div ref={SidebarRef} className="flex relative">
+        <div className={`overflow-y-scroll overflow-x-hidden shirnk-0 flex flex-col ${SidebarOpen ? 'w-[260px]' : 'w-[0px]'} ${isResizing ? '' : 'transition-all duration-500 ease-in-out'} bg-dark-layer-bg sticky top-0 left-0`}>
             <div className="flex flex-col p-4 gap-1  py-5.5">
                 <div className="flex gap-3 px-3 py-2 items-center text-text-primary hover:bg-sd-accent rounded-md cursor-pointer transition-all duration-200">
                     <svg className="w-4 h-4" fill="currentColor" aria-hidden="true" focusable="false" data-prefix="far" data-icon="books" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M48 416v48h64V416H48zm88 89.6c-7.1 4.1-15.3 6.4-24 6.4H48c-26.5 0-48-21.5-48-48V416 392 368 144 120 96 48C0 21.5 21.5 0 48 0h64c8.7 0 16.9 2.3 24 6.4C143.1 2.3 151.3 0 160 0h64c20.6 0 38.1 12.9 45 31.1c5.6-6.1 12.9-10.7 21.4-13L349.9 1.6c24.7-6.8 50.1 8.3 56.7 33.8l18 69.2 6 23.2 61.8 238.3 6 23.2 11.9 46c6.6 25.5-8 51.7-32.7 58.5l-59.6 16.5c-24.7 6.8-50.1-8.3-56.7-33.8l-18-69.2-6-23.2L275.6 145.9 272 132.2V144 368v24 24 48c0 26.5-21.5 48-48 48H160c-8.7 0-16.9-2.3-24-6.4zM160 464h64V416H160v48zM112 48H48V96h64V48zm0 96H48V368h64V144zm48-48h64V48H160V96zm64 272V144H160V368h64zm216.1-12.3l-55.8-215-56.5 15.6 55.8 215 56.5-15.6zm-44.4 62.1l11.9 45.7L464 447.9c0-.1 0-.2 0-.3l0-.1-11.7-45.2-56.5 15.6zm-79.9-308l56.5-15.6L360.4 48.5 304 64.1c0 .1 0 .2 0 .4l11.7 45.2z"></path></svg>
@@ -35,7 +58,7 @@ const Sidebar = () => {
                 </div>
             </div>
         </div>
-        {SidebarOpen && <div className="group absolute w-3 top-0 min-h-screen -right-2 cursor-ew-resize">
+        {SidebarOpen && <div onMouseDown={handleOnMouseDown} onMouseMove={handleOnMouseMove} onMouseUp={handleOnMouseUp} className="group absolute w-3 top-0 min-h-screen -right-2 cursor-ew-resize">
             <div className="w-1 min-h-screen absolute right-1  group-hover:bg-dark-lc-support-info group-active:bg-dark-lc-support-info transition-all duraiton-200 ease-in-out"></div>
             <div onClick={() => {setSidebarOpen(false)}} className="w-6 h-6 rounded-full absolute top-6 hover:bg-sd-blue-400 scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-sd-card border-sd-border text-fixed-white flex justify-center items-center -right-2 cursor-pointer ">
                 <svg className="w-3 h-3" aria-hidden="true" focusable="false" data-prefix="far" data-icon="angles-left" class="svg-inline--fa fa-angles-left absolute left-1/2 top-1/2 h-[1em] -translate-x-1/2 -translate-y-1/2 align-[-0.125em]" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M47 239c-9.4 9.4-9.4 24.6 0 33.9L207 433c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L97.9 256 241 113c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L47 239zM399 79L239 239c-9.4 9.4-9.4 24.6 0 33.9L399 433c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-143-143L433 113c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0z"></path></svg>
