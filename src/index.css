@@ -20,4 +20,14 @@
     --color-sd-blue-400:hsl(209 100% 55%);
     --breakpoint-lc-dsw-lg:991px;
     --breakpoint-lc-dsw-xl:1100px;
+    --color-sd-foreground:hsl(0 0% 96%);
+    --color-sd-primary:hsl(0 0% 96%);
+    --color-sd-secondary-foreground:hsl(0 0% 98%);
+    --color-sd-secondary:hsl(0 0% 22%);
+    --color-sd-muted-foreground:hsl(0 0% 66%);
+    --color-sd-accent-foreground:hsl(0 0% 98%);
+    --color-fill-quarternary:#ffffff0f;
+    --color-easy:hsl(180 74% 42%);
+    --color-medium:hsl(43 100% 50%);
+    --color-hard:hsl(0 91% 59%);
 }
